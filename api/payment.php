@@ -1,17 +1,11 @@
 <?php
+ob_start(); // Start output buffering
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // The request is using the POST method
 
     $result = CallAPI("https://secure.myfees.lk/api/sch/payments", $_POST);
     $result = json_decode($result, true);
-
-    // Check if $result is an array before trying to echo it
-    if (is_array($result)) {
-        print_r($result); // Output the array
-    } else {
-        echo $result; // Output as string
-    }
 
     if (isset($result['id'])) {
         // Redirect to the payment URL
@@ -34,4 +28,5 @@ function CallAPI($url, $data)
     return $result;
 }
 
+ob_end_flush(); // Flush the output buffer and send content to the browser
 ?>
