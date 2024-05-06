@@ -1,16 +1,17 @@
 {
-  "version": 2,
-  "functions": {
-    "api/**/*.php": { "runtime": "vercel-php@0.6.0" }
-  },
-  "rewrites": [
-    {
-      "source": "/api/payment.php",
-      "destination": "/api/payment.php"
+    "version": 2,
+    "functions": {
+      "api/**/*.php": { "runtime": "vercel-php@0.6.0" }
     },
-    {
-      "source": "/(.*)",
-      "destination": "/api/index.php"
-    }
-  ]
-}
+    "routes": [
+      {
+        "src": "/api/(.*)",
+        "dest": "/api/payment.php"
+      },
+      {
+        "src": "/(.*)",
+        "dest": "/api/index.php"
+      }
+    ]
+  }
+  
