@@ -38,58 +38,67 @@ ob_end_flush(); // Flush the output buffer and send content to the browser
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style>
+        .container {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .form-container {
+            width: 100%;
+        }
+    </style>
 </head>
 
 <body>
-    <div class="row" style="
-    padding: 50px; 
-    margin-left: 0px;
-    margin-right: 0px;
-    margin:auto;
-    width: 50%;
-    ">
-        <div class="col-lg-8">
-            <div id="errors" class="alert alert-danger" role="alert" style="display: none">
-            </div>
+    <div class="container">
+        <div class="form-container">
             <form method="post" id="paymentForm">
-                <div class="form-group">
-                    <label for="studentName">Name</label>
-                    <input type="text" class="form-control" id="studentName" name="studentName" placeholder="Eg: John Doe" required>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="studentName">Name</label>
+                        <input type="text" class="form-control" id="studentName" name="studentName" placeholder="Eg: John Doe" required>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="description">Description</label>
+                        <input type="text" class="form-control" id="description" name="description" placeholder="Eg: Library Fee/Semester Fee" required>
+                    </div>
                 </div>
 
-                <div class="form-group">
-                    <label for="description">Description</label>
-                    <input type="text" class="form-control" id="description" name="description" placeholder="Eg: Library Fee/Semester Fee" required>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="amount">Payment Amount</label>
+                        <input type="text" class="form-control" id="amount" name="amount" placeholder="Eg: 999.99" required>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="indexNumber">Index Number</label>
+                        <input type="text" class="form-control" id="indexNumber" name="indexNumber" placeholder="Eg: ABC123 / 0000" required>
+                    </div>
                 </div>
 
-                <div class="form-group">
-                    <label for="amount">Payment Amount</label>
-                    <input type="text" class="form-control" id="amount" name="amount" placeholder="Eg: 999.99" required>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="email">Email</label>
+                        <input type="text" class="form-control" id="email" name="email" placeholder="Eg: johndoe@gmail.com" required>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="phoneNo">Mobile Number</label>
+                        <input type="text" class="form-control" id="phoneNo" name="phoneNo" placeholder="Eg: +94000000000">
+                    </div>
                 </div>
 
-                <div class="form-group">
-                    <label for="indexNumber">Index Number</label>
-                    <input type="text" class="form-control" id="indexNumber" name="indexNumber" placeholder="Eg: ABC123 / 0000" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="text" class="form-control" id="email" name="email" placeholder="Eg: johndoe@gmail.com" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="phoneNo">Mobile Number</label>
-                    <input type="text" class="form-control" id="phoneNo" name="phoneNo" placeholder="Eg: +94000000000">
-                </div>
-
-                <div class="form-group">
-                    <label for="classOrCourse">Class or Course name</label>
-                    <input type="text" class="form-control" id="classOrCourse" name="classOrCourse" placeholder="Eg: Grade7/Dip.in.IT" required>
-                </div>
-
-                <div class="form-group form-check">
-                    <input type="checkbox" class="form-check-input" id="termsCheck">
-                    <label class="form-check-label" for="termsCheck">I agree to the terms and conditions</label>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="classOrCourse">Class or Course name</label>
+                        <input type="text" class="form-control" id="classOrCourse" name="classOrCourse" placeholder="Eg: Grade7/Dip.in.IT" required>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <div class="form-check mt-4">
+                            <input type="checkbox" class="form-check-input" id="termsCheck">
+                            <label class="form-check-label" for="termsCheck">I agree to the terms and conditions</label>
+                        </div>
+                    </div>
                 </div>
 
                 <input type="hidden" id="apiKey" name="apiKey" value="KCBAE725KPTCGANOKA902101207">
