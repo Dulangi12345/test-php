@@ -41,7 +41,13 @@ ob_end_flush(); // Flush the output buffer and send content to the browser
 </head>
 
 <body>
-    <div class="row" style="padding: 50px;">
+    <div class="row" style="
+    padding: 50px; 
+    margin-left: 0px;
+    margin-right: 0px;
+    margin:auto;
+    width: 50%;
+    ">
         <div class="col-lg-8">
             <div id="errors" class="alert alert-danger" role="alert" style="display: none">
             </div>
