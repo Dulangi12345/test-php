@@ -42,18 +42,10 @@ ob_end_flush(); // Flush the output buffer and send content to the browser
 
 <body>
     <div class="row" style="padding: 50px;">
-
-
-
-
-
-
-
-
         <div class="col-lg-8">
             <div id="errors" class="alert alert-danger" role="alert" style="display: none">
             </div>
-            <form method="post">
+            <form method="post" id="paymentForm">
                 <div class="form-group">
                     <label for="studentName">Name</label>
                     <input type="text" class="form-control" id="studentName" name="studentName" placeholder="Eg: John Doe" required>
@@ -89,16 +81,29 @@ ob_end_flush(); // Flush the output buffer and send content to the browser
                     <input type="text" class="form-control" id="classOrCourse" name="classOrCourse" placeholder="Eg: Grade7/Dip.in.IT" required>
                 </div>
 
+                <div class="form-group form-check">
+                    <input type="checkbox" class="form-check-input" id="termsCheck">
+                    <label class="form-check-label" for="termsCheck">I agree to the terms and conditions</label>
+                </div>
+
                 <input type="hidden" id="apiKey" name="apiKey" value="KCBAE725KPTCGANOKA902101207">
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>
-
         </div>
     </div>
-</body>
 
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script>
+        document.getElementById('paymentForm').addEventListener('submit', function(event) {
+            var termsCheck = document.getElementById('termsCheck');
+            if (!termsCheck.checked) {
+                event.preventDefault();
+                alert('You must agree to the terms and conditions before submitting the form.');
+            }
+        });
+    </script>
+</body>
 
 </html>
